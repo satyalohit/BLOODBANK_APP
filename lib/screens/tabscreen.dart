@@ -31,8 +31,8 @@ class _TabscreenState extends State<Tabscreen> {
        onTap: selectpage,
        currentIndex: pageindex,
           backgroundColor: Theme.of(context).primaryColor,
-          unselectedItemColor: Colors.white,
-          selectedItemColor: Theme.of(context).accentColor,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Theme.of(context).accentColor,
           items: [
             BottomNavigationBarItem(
                 icon: Icon(Icons.home), title: Text('Home')),

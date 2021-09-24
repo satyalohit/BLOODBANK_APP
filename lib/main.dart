@@ -1,3 +1,4 @@
+import './onboarding/introductionscreen.dart';
 import 'package:bloodbank/screens/donorscreen.dart';
 import 'package:bloodbank/screens/homescreen.dart';
 import 'package:bloodbank/screens/recieverscreen.dart';
@@ -14,12 +15,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "BLOODBANK",
       theme: ThemeData(
-        accentColor: Colors.redAccent,
+        primarySwatch: Colors.red,
+        accentColor: Colors.redAccent[100],
         primaryColor: Colors.red,
       ),
       initialRoute: '/',
       routes: {
-        '/': (ctx) => Tabscreen(),
+        '/': (ctx) => OnBoardingPage(),
         DonateScreen.routename: (ctx) => DonateScreen(),
         Homescreen.routename: (ctx) => Homescreen(),
         RecieverScreen.routename: (ctx) => RecieverScreen()
