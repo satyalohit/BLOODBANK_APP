@@ -12,25 +12,25 @@ class DonateScreen extends StatefulWidget {
 }
 
 class _DonateScreenState extends State<DonateScreen> {
-  Future<void> Datatransfer() async {
-    var url = Uri.parse('');
-    final response = await http.post(url,
-        body: jsonEncode({
-          "firstname": firstnamecontroller.text,
-          "lastname": lastnamecontroller.text,
-          "age": agecontroller.text,
-          "bloodgroup": _currentbloodgroup,
-          "email": emailcontroller.text,
-          "phone": phonenocontroller.text,
-          "district": districtcontroller.text,
-          "gender": _currentgender,
-          "state": statecontroller.text,
-        }));
-    final responseBody = jsonDecode(response.body);
+  // Future<void> Datatransfer() async {
+  //   var url = Uri.parse('');
+  //   final response = await http.post(url,
+  //       body: jsonEncode({
+  //         "firstname": firstnamecontroller.text,
+  //         "lastname": lastnamecontroller.text,
+  //         "age": agecontroller.text,
+  //         "bloodgroup": _currentbloodgroup,
+  //         "email": emailcontroller.text,
+  //         "phone": phonenocontroller.text,
+  //         "district": districtcontroller.text,
+  //         "gender": _currentgender,
+  //         "state": statecontroller.text,
+  //       }));
+  //   final responseBody = jsonDecode(response.body);
 
-    ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(responseBody["message"].toString())));
-  }
+  //   ScaffoldMessenger.of(context).showSnackBar(
+  //       SnackBar(content: Text(responseBody["message"].toString())));
+  // }
 
   final firstnamecontroller = TextEditingController();
   final lastnamecontroller = TextEditingController();
@@ -41,10 +41,10 @@ class _DonateScreenState extends State<DonateScreen> {
   final statecontroller = TextEditingController();
   final _formkey = GlobalKey<FormState>();
 
-  var bloodGroup = ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"];
-  var _currentbloodgroup = "";
-  var gender = ["Male", "Female", "others"];
-  var _currentgender = "";
+  var _bloodGroup = ["BLOODGROUP","A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"];
+  var _currentbloodgroup = "BLOODGROUP";
+  var gender = ["Gender","Male", "Female", "others"];
+  var _currentgender = "Gender";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -218,9 +218,11 @@ class _DonateScreenState extends State<DonateScreen> {
                             this._currentgender = gen;
                           });
                         },
+                        
                         value: _currentgender,
                         hint: Text('BLOODGROUP'),
                       ),
+                      
                       DropdownButton<String>(
                         hint: Text('GENDER'),
                         underline: Container(
@@ -228,7 +230,7 @@ class _DonateScreenState extends State<DonateScreen> {
                           color: Theme.of(context).primaryColor,
                         ),
                         menuMaxHeight: 200,
-                        items: bloodGroup.map((group) {
+                        items: _bloodGroup.map((group) {
                           return DropdownMenuItem<String>(
                             child: Text(group),
                             value: group,
@@ -240,6 +242,7 @@ class _DonateScreenState extends State<DonateScreen> {
                           });
                         },
                         value: _currentbloodgroup,
+                      
                       ),
                     ],
                   ),

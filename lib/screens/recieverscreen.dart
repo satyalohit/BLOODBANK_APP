@@ -20,7 +20,7 @@ class _RecieverScreenState extends State<RecieverScreen> {
 //     }
 //   }
 
-  var bloodGroup = [
+  var _bloodGroup = [
     "BLOODGROUP",
     "A+",
     "A-",
@@ -82,7 +82,7 @@ class _RecieverScreenState extends State<RecieverScreen> {
                             color: Theme.of(context).primaryColor,
                           ),
                           menuMaxHeight: 200,
-                          items: bloodGroup.map((group) {
+                          items: _bloodGroup.map((group) {
                             return DropdownMenuItem<String>(
                               child: Text(group),
                               value: group,
